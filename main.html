@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formulario de Cambio</title>
+  <title>Página Principal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
   <style>
@@ -100,6 +100,12 @@
   </div>
 
   <script>
+    // Comprobar si se ha iniciado sesión
+    if (!localStorage.getItem('loggedIn')) {
+      // Redirigir a la página de inicio de sesión
+      window.location.href = 'index.html';
+    }
+
     function performReplacement() {
       var originalText = document.getElementById('original').value;
       var replacementText = document.getElementById('replacement').value;
