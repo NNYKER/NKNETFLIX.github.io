@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Página Principal</title>
+  <title>Iniciar Sesión</title>
 </head>
 <body>
-  <h1>Bienvenido a la Página Principal</h1>
-
-  <script>
-    // Verificar si hay una sesión válida
-    // Si no hay una sesión válida, redirigir a la página de inicio de sesión
-    if (!sessionStorage.getItem('isLoggedIn')) {
-      window.location.href = 'login.html';
-    }
-  </script>
+  <h2>Iniciar Sesión</h2>
+  <form id="login-form">
+    <div>
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+      <button type="submit">Iniciar Sesión</button>
+    </div>
+  </form>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    // Hacer una petición AJAX al servidor para verificar la sesión en el lado del servidor
     $(document).ready(function() {
-      $.ajax({
-        url: 'check_session.php', // Ruta a un script en el servidor que verifica la sesión
-        method: 'GET',
-        success: function(response) {
-          // Si la respuesta es "true", la sesión es válida, de lo contrario, redirigir a la página de inicio de sesión
-          if (response !== 'true') {
-            window.location.href = 'login.html';
+      // Escuchar el evento submit del formulario de inicio de sesión
+      $('#login-form').submit(function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario
+
+        // Obtener los valores del formulario
+        var username = $('#username').val();
+        var password = $('#password').val();
+
+        // Realizar una petición AJAX al servidor para verificar las credenciales de inicio de sesión
+        $.ajax({
+          url: 'login_check.php', // Ruta al script en el servidor que verifica las credenciales
+          method: 'POST',
+          data: {
+            username: username,
+            password: password
+          },
+          success: function(response) {
+            if (response === 'success') {
+              // Si las credenciales son válidas, establecer una sesión y redirigir a la página principal
+              sessionStorage.setItem('isLoggedIn', true);
+              window.location.href = 'main.html';
+            } else {
+              // Si las credenciales no son válidas, mostrar un mensaje de error
+              alert('Usuario o contraseña incorrectos. Inténtalo nuevamente.');
+            }
           }
-        }
+        });
       });
     });
   </script>
