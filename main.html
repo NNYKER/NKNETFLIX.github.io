@@ -64,11 +64,31 @@
     #copy-button:hover {
       background-color: #006080;
     }
+    #user-info {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #logout-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #f44336;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    #logout-button:hover {
+      background-color: #d32f2f;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Formulario de Cambio</h2>
+    <div id="user-info">
+      <p>Usuario: <span id="username"></span></p>
+      <button id="logout-button" onclick="logout()">Cerrar sesión</button>
+    </div>
     <div class="form-group">
       <label for="original">Texto original:</label>
       <input type="text" id="original" readonly value=".sa" />
@@ -104,6 +124,9 @@
     if (!localStorage.getItem('loggedIn')) {
       // Redirigir a la página de inicio de sesión
       window.location.href = 'index.html';
+    } else {
+      // Mostrar el nombre de usuario
+      document.getElementById('username').textContent = localStorage.getItem('loggedIn');
     }
 
     function performReplacement() {
@@ -198,6 +221,13 @@ Next
         }
         document.body.removeChild(textarea);
       }
+    }
+    
+    function logout() {
+      // Eliminar la información de inicio de sesión del almacenamiento local
+      localStorage.removeItem('loggedIn');
+      // Redirigir a la página de inicio de sesión
+      window.location.href = 'index.html';
     }
   </script>
 </body>
