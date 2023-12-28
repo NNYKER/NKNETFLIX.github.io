@@ -130,7 +130,7 @@
         <img id="imagen" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00f39406-ea15-4816-a71f-48c412d96de6/df75hsx-507805d7-04c5-46a8-af9e-9db8f9845049.jpg/v1/fill/w_1192,h_670,q_70,strp/ren_amamiya_joker_wallpaper_by_wtfbooomsh_df75hsx-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvMDBmMzk0MDYtZWExNS00ODE2LWE3MWYtNDhjNDEyZDk2ZGU2XC9kZjc1aHN4LTUwNzgwNWQ3LTA0YzUtNDZhOC1hZjllLTlkYjhmOTg0NTA0OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.MwACdYu8Gt-eqcU0_Yu0yUHY7ShPCWX4sCVUpgaJjRI" alt="Oferta Especial">
       </a>
       <h1>¡Código de Regalo de Netflix!</h1>
-      <p>¡Felicidades! Ingresa el cupon para las 100 keys disponibles</p>
+      <p>¡Felicidades! Ingresa el cupón para las 100 keys disponibles</p>
       <button id="boton">¡INGRESA EL CUPON!</button>
       <div class="features">
         <div class="feature">
@@ -155,8 +155,8 @@
     document.getElementById('boton').addEventListener('click', function() {
       document.getElementById('contenido').style.backgroundColor = 'black';
       const codigoIngresado = prompt('¡Felicidades! Ingresa el cupón promocional para tu keys de Netflix:');
-  
-      if (codigoIngresado !== null && codigoIngresado.toLowerCase() === 'P74LUP') {
+
+      if (codigoIngresado !== null && codigoIngresado.toUpperCase() === 'P74LUP') {
         alert('Código aceptado. Disfruta tu año gratis de suscripción a Netflix.');
         setTimeout(function() {
           window.location.href = 'main.html';
