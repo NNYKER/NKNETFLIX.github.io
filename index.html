@@ -1,153 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Inicio de sesión</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <meta charset="UTF-8">
+  <title>Netflix - Oferta Exclusiva</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-image: url('https://fondosmil.com/fondo/67425.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #141414;
+      color: #fff;
+    }
+    #header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #contenido {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    #contenido:hover {
+      background-color: black;
+    }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    #boton {
+      background-color: #e50914;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #boton:hover {
+      background-color: #cc0812;
+    }
+    #imagen {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    #imagen:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 0.9em;
     }
     .container {
-      max-width: 500px;
-      margin: 0 auto;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+    .logo:hover {
+      transform: rotateY(180deg) scale(1.05);
+    }
+    .features {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+    .feature {
+      flex: 1;
+      margin: 0 10px;
       padding: 20px;
-      animation: appear 1s ease-out;
-    }
-    @keyframes appear {
-      0% {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    h2 {
-      text-align: center;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: bold;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    .form-group button {
-      padding: 8px 16px;
-      background-color: #4CAF50;
-      border: none;
-      color: #ffffff;
+      background-color: #333;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      border-radius: 3px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    .form-group button:hover {
-      background-color: #45a049;
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
     }
-    .pin-group {
-      text-align: center;
-      margin-top: 30px;
-    }
-    .pin-group label {
-      display: block;
-      font-weight: bold;
+    .feature h2 {
+      font-size: 1.5em;
       margin-bottom: 10px;
+      color: #fff;
     }
-    .pin-group input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      text-align: center;
-      font-size: 24px;
+    .feature p {
+      font-size: 1em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+  <div id="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+  </div>
   <div class="container">
-    <h2>Inicio de sesión</h2>
-    <div class="form-group">
-      <label for="username">Usuario:</label>
-      <input type="text" id="username" />
-    </div>
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" />
-    </div>
-    <div class="form-group">
-      <button onclick="login()">Iniciar sesión</button>
-    </div>
-
-    <div class="pin-group">
-      <label for="pin">Código PIN:</label>
-      <input type="password" id="pin" />
-    </div>
-    <div class="form-group">
-      <button onclick="loginWithPin()">Iniciar sesión con PIN</button>
+    <div id="contenido">
+      <a href="https://t.me/NNYKER" target="_blank">
+        <img id="imagen" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00f39406-ea15-4816-a71f-48c412d96de6/df75hsx-507805d7-04c5-46a8-af9e-9db8f9845049.jpg/v1/fill/w_1192,h_670,q_70,strp/ren_amamiya_joker_wallpaper_by_wtfbooomsh_df75hsx-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvMDBmMzk0MDYtZWExNS00ODE2LWE3MWYtNDhjNDEyZDk2ZGU2XC9kZjc1aHN4LTUwNzgwNWQ3LTA0YzUtNDZhOC1hZjllLTlkYjhmOTg0NTA0OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.MwACdYu8Gt-eqcU0_Yu0yUHY7ShPCWX4sCVUpgaJjRI" alt="Oferta Especial">
+      </a>
+      <h1>¡Código de Regalo de Netflix!</h1>
+      <p>¡Felicidades! Ingresa el cupon para las 100 keys disponibles</p>
+      <button id="boton">¡INGRESA EL CUPON!</button>
+      <div class="features">
+        <div class="feature">
+          <h2>Películas y Series</h2>
+          <p>Accede a un amplio catálogo de películas y series exclusivas.</p>
+        </div>
+        <div class="feature">
+          <h2>Streaming en HD</h2>
+          <p>Disfruta de contenido en alta definición sin interrupciones.</p>
+        </div>
+        <div class="feature">
+          <h2>Varios Dispositivos</h2>
+          <p>Disfruta en múltiples dispositivos con una sola suscripción.</p>
+        </div>
+      </div>
     </div>
   </div>
-
+  <div class="footer">
+    <p>© 2023 Netflix, Inc.</p>
+  </div>
   <script>
-    function login() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-
-      // Comprobar el usuario y contraseña
-      if ((username === 'Admin' && password === 'Junior!2006') || (username === 'TheGoat' && password === 'funcionabins204')) {
-        // Almacenar información de inicio de sesión en el almacenamiento local
-        localStorage.setItem('loggedIn', username);
-
-        // Redirigir a la página principal
-        window.location.href = 'main.html';
+    document.getElementById('boton').addEventListener('click', function() {
+      document.getElementById('contenido').style.backgroundColor = 'black';
+      const codigoIngresado = prompt('¡Felicidades! Ingresa el cupón promocional para tu keys de Netflix:');
+  
+      if (codigoIngresado !== null && codigoIngresado.toLowerCase() === 'pipul') {
+        alert('Código aceptado. Disfruta tu año gratis de suscripción a Netflix.');
+        setTimeout(function() {
+          window.location.href = 'cupon_valido.html';
+        }, 2000); // Redirigir a la siguiente pantalla después de 2 segundos (simulado)
       } else {
-        alert('Credenciales inválidas. Por favor, intente de nuevo.');
-      }
-    }
-
-    function loginWithPin() {
-      var pin = document.getElementById('pin').value;
-
-      // Comprobar el código PIN
-      if (pin === '7774') {
-        // Almacenar información de inicio de sesión en el almacenamiento local
-        localStorage.setItem('loggedIn', 'PIN');
-
-        // Redirigir a la página principal
-        window.location.href = 'main.html';
-      } else {
-        alert('Código PIN inválido. Por favor, intente de nuevo.');
-      }
-    }
-
-    // Detectar la pulsación de la tecla "Enter" en el campo de contraseña
-    var passwordInput = document.getElementById('password');
-    passwordInput.addEventListener('keyup', function(event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        login();
-      }
-    });
-
-    // Detectar la pulsación de la tecla "Enter" en el campo de PIN
-    var pinInput = document.getElementById('pin');
-    pinInput.addEventListener('keyup', function(event) {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        loginWithPin();
+        alert('Código incorrecto. Por favor, intenta nuevamente.');
       }
     });
   </script>
