@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix - Día de los Inocentes</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #141414;
+      color: #fff;
+    }
+    #header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #contenido {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    #contenido:hover {
+      background-color: black;
+    }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    #boton {
+      background-color: #e50914;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #boton:hover {
+      background-color: #cc0812;
+    }
+    #imagen {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    #imagen:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 0.9em;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+    .logo:hover {
+      transform: rotateY(180deg) scale(1.05);
+    }
+    .features {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+    .feature {
+      flex: 1;
+      margin: 0 10px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    }
+    .feature h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .feature p {
+      font-size: 1em;
+      color: #aaa;
+    }
+
+    /* Estilos para el enlace de Telegram */
+    .telegram-link {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+      text-decoration: none;
+      color: #e50914;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+  </div>
+  <div class="container">
+    <div id="contenido">
+      <img id="imagen" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00f39406-ea15-4816-a71f-48c412d96de6/df75hsx-507805d7-04c5-46a8-af9e-9db8f9845049.jpg/v1/fill/w_1192,h_670,q_70,strp/ren_amamiya_joker_wallpaper_by_wtfbooomsh_df75hsx-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvMDBmMzk0MDYtZWExNS00ODE2LWE3MWYtNDhjNDEyZDk2ZGU2XC9kZjc1aHN4LTUwNzgwNWQ3LTA0YzUtNDZhOC1hZjllLTlkYjhmOTg0NTA0OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.MwACdYu8Gt-eqcU0_Yu0yUHY7ShPCWX4sCVUpgaJjRI" alt="Oferta Especial">
+      <h1>Feliz Día de los Inocentes</h1>
+      <p>¡Es solo una broma! ¡Gracias por participar!</p>
+      <button id="boton">¡Es una broma!</button>
+      <a class="telegram-link" href="https://t.me/NNYKER" target="_blank">Unirse a Telegram</a>
+    </div>
+  </div>
+  <div class="footer">
+    <p>© 2023 Netflix, Inc.</p>
+  </div>
+</body>
+</html>
