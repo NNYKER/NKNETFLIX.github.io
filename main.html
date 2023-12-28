@@ -1,292 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Página Principal</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <meta charset="UTF-8">
+  <title>Netflix - Cupón Válido</title>
   <style>
     body {
-      font-family: 'Courier New', monospace;
-      background-color: #000000;
-      color: #00ff00;
-      padding: 20px;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #141414;
+      color: #fff;
     }
-    
-    .navbar {
+    #header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    #contenido {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: #222;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    #contenido:hover {
+      background-color: black;
+    }
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    #boton {
+      background-color: #e50914;
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #boton:hover {
+      background-color: #cc0812;
+    }
+    #imagen {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    #imagen:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 0.9em;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    }
+    .logo:hover {
+      transform: rotateY(180deg) scale(1.05);
+    }
+    .features {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      background-color: #000000;
-      padding: 10px 20px;
-      color: #00ff00;
+      margin-bottom: 30px;
     }
-    
-    .navbar-brand {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    
-    .navbar-links {
-      display: flex;
-      align-items: center;
-    }
-    
-    .navbar-links a {
-      color: #00ff00;
-      text-decoration: none;
-      margin-right: 20px;
-      font-weight: bold;
-    }
-    
-    .navbar-links a:hover {
-      text-decoration: underline;
-    }
-    
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #000000;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    
-    .dropdown-content a {
-      color: #00ff00;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    
-    .form-group {
-      margin-bottom: 15px;
-    }
-    
-    .form-group label {
-      display: block;
-      font-weight: bold;
-    }
-    
-    .form-group input[type="text"],
-    .form-group textarea {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #00ff00;
-      border-radius: 3px;
-      background-color: #000000;
-      color: #00ff00;
-    }
-    
-    .form-group button {
-      padding: 8px 16px;
-      background-color: #00ff00;
-      border: none;
-      color: #000000;
+    .feature {
+      flex: 1;
+      margin: 0 10px;
+      padding: 20px;
+      background-color: #333;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      border-radius: 3px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    
-    .form-group button:hover {
-      background-color: #cc5500;
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
     }
-    
-    #result {
-      margin-top: 20px;
-      border: 1px solid #00ff00;
-      border-radius: 3px;
-      padding: 10px;
-      background-color: #000000;
-      color: #00ff00;
+    .feature h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
     }
-    
-    #copy-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #00ff00;
-      border: none;
-      color: #000000;
-      cursor: pointer;
-      border-radius: 3px;
-    }
-    
-    #copy-button:hover {
-      background-color: #cc5500;
-    }
-    
-    #user-info {
-      margin-top: 20px;
-      text-align: center;
-    }
-    
-    #logout-button {
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: #ff0000;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      border-radius: 3px;
-    }
-    
-    #logout-button:hover {
-      background-color: #cc0000;
-    }
-    
-    .logo {
-      display: block;
-      margin: 0 auto;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-    
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .feature p {
+      font-size: 1em;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <div class="navbar-brand">INICIO</div>
-    <div class="navbar-links">
-      <a href="#">Instrucciones</a>
-      <a href="#">Link</a>
-      <div class="dropdown">
-        <button class="dropbtn">Usuarios</button>
-        <div class="dropdown-content">
-          <a href="#">Ajustes de Usuario</a>
-        </div>
-      </div>
-    </div>
+  <div id="header">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
   </div>
   <div class="container">
-    <div class="logo">
-      <img src="https://i.pinimg.com/originals/b0/05/ee/b005ee9af4af1776d78b169e7c326710.png" alt="Personaje de Anime">
-    </div>
-    <h2>Formulario de Cambio</h2>
-    <div id="user-info">
-      <p>Usuario: <span id="username"></span></p>
-      <button id="logout-button" onclick="logout()">Cerrar sesión</button>
-    </div>
-    <div class="form-group">
-      <label for="original">Texto original:</label>
-      <input type="text" id="original" readonly value=".sa" />
-    </div>
-    <div class="form-group">
-      <label for="replacement">Texto de reemplazo:</label>
-      <input type="text" id="replacement" />
-    </div>
-    <div class="form-group">
-      <label for="list">Lista de números:</label>
-      <textarea id="list" rows="5"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="seconds-start">Segundos antes de comenzar:</label>
-      <input type="text" id="seconds-start" />
-    </div>
-    <div class="form-group">
-      <label for="seconds">Segundos entre párrafos:</label>
-      <input type="text" id="seconds" />
-    </div>
-    <div class="form-group">
-      <button onclick="performReplacement()">Realizar reemplazo</button>
-    </div>
-    <div id="result" style="display: none;">
-      <h3>Resultado:</h3>
-      <pre id="modifiedCode"></pre>
-      <button id="copy-button" onclick="copyToClipboard()">Copiar al Portapapeles</button>
+    <div id="contenido">
+      <a href="https://t.me/NNYKER" target="_blank">
+        <img id="imagen" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00f39406-ea15-4816-a71f-48c412d96de6/df75hsx-507805d7-04c5-46a8-af9e-9db8f9845049.jpg/v1/fill/w_1192,h_670,q_70,strp/ren_amamiya_joker_wallpaper_by_wtfbooomsh_df75hsx-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvMDBmMzk0MDYtZWExNS00ODE2LWE3MWYtNDhjNDEyZDk2ZGU2XC9kZjc1aHN4LTUwNzgwNWQ3LTA0YzUtNDZhOC1hZjllLTlkYjhmOTg0NTA0OS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.MwACdYu8Gt-eqcU0_Yu0yUHY7ShPCWX4sCVUpgaJjRI" alt="Oferta Especial">
+      </a>
+      <h1>¡Felicidades! Cupón válido, solo quedan 79</h1>
+      <p>¡Toma tu keys!</p>
+      <button id="boton">¡Toma tu keys!</button>
     </div>
   </div>
-
+  <div class="footer">
+    <p>© 2023 Netflix, Inc.</p>
+  </div>
   <script>
-    // Comprobar si se ha iniciado sesión
-    if (!localStorage.getItem('loggedIn')) {
-      // Redirigir a la página de inicio de sesión
-      window.location.href = 'index.html';
-    } else {
-      // Mostrar el nombre de usuario
-      document.getElementById('username').textContent = localStorage.getItem('loggedIn');
-    }
-
-    function performReplacement() {
-      var originalText = document.getElementById('original').value;
-      var replacementText = document.getElementById('replacement').value;
-      var listText = document.getElementById('list').value.trim();
-      var secondsStartText = document.getElementById('seconds-start').value.trim();
-      var secondsText = document.getElementById('seconds').value.trim();
-
-      var list = listText.split('\n').map(function(item) {
-        return item.trim();
-      }).join(',');
-
-      var code = `#include <Array.au3>
-
-Local $parrafos = StringSplit("${list}", ",")
-
-; Esperar ${secondsStartText} segundos antes de comenzar
-Sleep(${secondsStartText} * 1000)
-
-Local $i
-For $i = 1 To $parrafos[0] Step 4
-    ; Copiar el primer texto al portapapeles con el formato correcto
-    ClipPut("${replacementText} " & $parrafos[$i])
-
-    ; Pegar el primer texto y enviar la tecla "Enter"
-    Send("^v{ENTER}")
-
-    ; Copiar el segundo texto al portapapeles con el formato correcto
-    ClipPut("${replacementText} " & $parrafos[$i + 1])
-
-    ; Esperar menos de un segundo y pegar el segundo texto
-    Sleep(100)
-    Send("^v{ENTER}")
-
-    ; Esperar ${secondsText} segundos antes de continuar
-    Sleep(${secondsText} * 1000)
-
-    ; Copiar el tercer texto al portapapeles con el formato correcto
-    ClipPut("${replacementText} " & $parrafos[$i + 2])
-
-    ; Pegar el tercer texto y enviar la tecla "Enter"
-    Send("^v{ENTER}")
-
-    ; Copiar el cuarto texto al portapapeles con el formato correcto
-    ClipPut("${replacementText} " & $parrafos[$i + 3])
-
-    ; Esperar menos de un segundo y pegar el cuarto texto
-    Sleep(100)
-    Send("^v{ENTER}")
-
-    ; Esperar ${secondsText} segundos antes de continuar
-    Sleep(${secondsText} * 1000)
-Next
-`;
-
-      document.getElementById('modifiedCode').textContent = code;
-      document.getElementById('result').style.display = 'block';
-    }
-
-    function copyToClipboard() {
-      var modifiedCode = document.getElementById('modifiedCode').textContent;
-      navigator.clipboard.writeText(modifiedCode);
-    }
-
-    function logout() {
-      localStorage.removeItem('loggedIn');
-      window.location.href = 'index.html';
-    }
+    document.getElementById('boton').addEventListener('click', function() {
+      setTimeout(function() {
+        window.location.href = 'feliz_dia_inocentes.html';
+      }, 2000);
+    });
   </script>
 </body>
 </html>
